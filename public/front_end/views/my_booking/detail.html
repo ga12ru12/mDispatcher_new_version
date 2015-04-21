@@ -1,0 +1,180 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<div class="myBookingDetailDiv">
+    <div class="headerDetailBooking header">
+        <div class="icon">
+            <a class="backIcon" ui-sref="my_booking"><img src="/images/cabzilla_icon/arrow.png"></a>
+        </div>
+        <div class="title">Booking Detail</div>
+    </div>
+    <div class="mainContent">
+        <div class="infoBooking">
+            <div class="detailConfirmed" ng-if="bookingDetail.statusMobileDispatcher === 'Confirmed'">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        <img ng-src="{{ bookingDetail.driverAvatar }}">
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        <div>{{ bookingDetail.driverName }}</div>
+                        <div>{{ bookingDetail.driverId }}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        Vehicle
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        {{ bookingDetail.fleetName }} / {{ bookingDetail.vehicleType }} / {{ bookingDetail.vehiclePlate }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        Status
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        {{ bookingDetail.statusMobileDispatcher }}
+                    </div>
+                </div>
+                <div class="displayMoreInfo">
+                    <div class="showMore">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Booking Time
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.pickupTimeByFleet }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Passenger
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.passengerName }} / {{ bookingDetail.passengerPhone }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Pick-up
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.pickupLocation }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Destination
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.destination }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                ETA
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ durationBooking }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Notes
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.note }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cancelBooking">
+                        <div>
+                            <button class="btn radius cancelBtn">Cancel</button>
+                        </div>
+                        <div class="showMoreIcon" ng-click="showDetail()">
+                            <img src="/images/booking/downIcon.png" class="downIcon">
+                            <img src="/images/booking/arrow.png" class="upIcon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detailPending" ng-if="bookingDetail.statusMobileDispatcher === 'Pending'">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        Pick-up
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        {{ bookingDetail.pickupLocation }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        Destination
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        {{ bookingDetail.destination }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 columns tit">
+                        Status
+                    </div>
+                    <div class="col-xs-8 col-sm-8 columns content">
+                        {{ bookingDetail.statusMobileDispatcher }}
+                    </div>
+                </div>
+                <div class="displayMoreInfo">
+                    <div class="showMore">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Booking Time
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.pickupTimeByFleet }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Passenger
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.passengerName }} / {{ bookingDetail.passengerPhone }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Vehicle
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.fleetName }} / {{ bookingDetail.vehicleType }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 columns tit">
+                                Notes
+                            </div>
+                            <div class="col-xs-8 col-sm-8 columns content">
+                                {{ bookingDetail.note }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cancelBooking">
+                        <div>
+                            <button class="button radius cancelBtn">Cancel</button>
+                        </div>
+                        <div class="showMoreIcon" ng-click="showDetail()">
+                            <img src="/images/booking/downIcon.png" class="downIcon">
+                            <img src="/images/booking/arrow.png" class="upIcon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui-gmap-google-map center='map.center' control="map.control" events="map.events" zoom='map.zoom' class="mapBookingDetail" id="mapBooking">
+            <ui-gmap-marker coords="driverMarker.geo" idKey="driverMarker.id" icon="driverMarker.icon">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+</div>

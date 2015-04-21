@@ -1,0 +1,116 @@
+.forgotPasswordDiv .headerForgotPassword{
+    background-color: #DA3F3A !important;
+}
+.forgotPasswordDiv .headerForgotPassword .title{
+    color: white;
+}
+.row label, fieldset label, fieldset input {
+    color: black;
+}
+
+.CabzillaLogin {
+    max-width: 520px;
+}
+.CabzillaLogin .logo img {
+    width: 450px;
+    margin-top: 50px;
+}
+@media (max-width: 526px) {
+    .CabzillaLogin .logo img {
+        width: 90%;
+    }
+}
+.forgotPassDiv h4 {
+    color: black;
+}
+.cabzillaBtn {
+    background-color: #DA3F3A !important;
+    border-color: #DA3F3A !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}
+.forgotPasswordDiv .content span {
+    color: black;
+}
+.forgotPasswordDiv{
+    display: block;
+    position: relative;
+}
+
+/*-----------------Sign Up-------------------*/
+.signUpDiv .row:nth-child(1), .signUpDiv .nameDiv .col-md-6:nth-child(2) {
+    border-bottom: 1px solid #c0c0c0;
+}
+.signUpDiv .nameDiv{
+    border-bottom: none !important;
+}
+.signUpDiv .nameDiv .col-md-6:nth-child(1){
+    padding-left: 0;
+}
+.signUpDiv .nameDiv .col-md-6 div{
+    border-bottom: 1px solid #c0c0c0;
+    width: 90%;
+}
+.signUpDiv input, .CabzillaLogin input{
+    color: black;
+}
+.signUpDiv{
+    display: block;
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.signUpDiv .headerSignUp{
+    height: 45px;
+    background-color: #DA3F3A;
+    text-align: center;
+    position: relative;
+    color: white;
+}
+.signUpDiv .headerSignUp .title{
+    font-size: 18px;
+    color: white;
+    line-height: 45px;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    left: 40px;
+}
+.signUpDiv .headerSignUp .icon{
+    line-height: 45px;
+    width: 40px;
+    float: left;
+}
+.signUpDiv .content{
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.signUpDiv .content .submitBtn {
+    width: 100%;
+}
+.signUpDiv .row div {
+    display: block;
+    overflow: inherit;
+}
+.signUpDiv .col-md-6 {
+    width: 50% !important;
+    float: left;
+}
+.signUpDiv .submitBtn{
+    margin-top: 15px;
+}
+.has-error{
+    border-color: red !important;
+}
+.intl-tel-input .selected-flag .arrow{
+    display: none;
+}
+.intl-tel-input .flag-dropdown{
+    margin-top: -5px;
+}
+.reveal-modal .cabzillaBtn{
+    margin-top: 25px;
+}

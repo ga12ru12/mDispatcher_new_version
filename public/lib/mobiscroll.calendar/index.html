@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <title>Mobiscroll</title>
+
+    <!-- jQuery Mobile Include -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    
+    <link href="css/mobiscroll.custom-2.14.3.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/mobiscroll.custom-2.14.3.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+    </style>
+
+    <script>
+        $(function () {
+
+            function init() {
+                
+                // Calendar demo initialization
+                $('#demo_calendar').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang        // Specify language like: lang: 'pl' or omit setting to use default 
+                });
+                
+                // Calandar & Date demo initialization
+                $('#demo_calendar_date').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date']  // More info about controls: http://docs.mobiscroll.com/2-14-3/calendar#!opt-controls
+                });
+                
+                // Calendar & Date & Time demo initialization
+                $('#demo_calendar_datetime').mobiscroll().calendar({
+                    theme: theme,     // Specify theme like: theme: 'ios' or omit setting to use default 
+                    mode: mode,       // Specify scroller mode like: mode: 'mixed' or omit setting to use default 
+                    display: display, // Specify display mode like: display: 'bottom' or omit setting to use default 
+                    lang: lang,       // Specify language like: lang: 'pl' or omit setting to use default
+                    controls: ['calendar', 'date', 'time']  // More info about controls: http://docs.mobiscroll.com/2-14-3/calendar#!opt-controls
+                });
+                
+            }    
+
+            // -------------------------------------------------------------------
+            // Demo page code START, you can ignore this in your implementation
+            var demo, theme, mode, display, lang;
+            
+            $('.settings').on('change', function() {
+                demo = $('#demo').val();
+                theme = $('#theme').val() || $.mobiscroll.defaults.theme,
+                mode = $('#mode').val(),
+                display = $('#display').val(),
+                lang = $('#language').val();
+
+                $('.demo-cont').hide();
+                $("#demo_cont_" + demo).show();
+                
+                init();
+            });
+
+            $('#demo').trigger('change');
+            // Demo page code END
+            // -------------------------------------------------------------------
+        });
+    </script>
+</head>
+
+<body>
+    <div data-role="header">
+        <h1>Mobiscroll</h1>
+    </div>
+
+    <div data-role="content">
+        <!-- ------------------------------------------------------------------ -->
+        <!-- Demo configurator markup START, ignore this in your implementation -->
+        <div>
+            <label for="theme">Theme</label>
+            <select name="theme" id="theme" class="settings">
+                <option value="">Default / Auto</option>
+            </select>
+        </div>
+        <div>
+            <label for="mode">Mode</label>
+            <select name="mode" id="mode" class="settings">
+                <option value="scroller">Scroller</option>
+                <option value="clickpick">Clickpick</option>
+                <option value="mixed">Mixed</option>
+            </select>
+        </div>
+        <div>
+            <label for="display">Display</label>
+            <select name="display" id="display" class="settings">
+                <option value="modal">Modal</option>
+                <option value="inline">Inline</option>
+                <option value="bubble">Bubble</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+            </select>
+        </div>
+        <div>
+            <label for="language">Language</label>
+            <select name="language" id="language" class="settings">
+                <option value="">English</option>
+            </select>
+        </div>
+        <div>
+            <label for="demo">Demo</label>
+            <select name="demo" id="demo" class="settings">
+                <option value="calendar" selected>Calendar</option>
+                <option value="calendar_date" >Calandar & Date</option>
+                <option value="calendar_datetime" >Calendar & Date & Time</option>
+            </select>
+        </div>
+        <!-- Demo configurator markup END -->
+        <!-- ------------------------------------------------------------------ -->
+
+    
+        <!-- Calendar demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar">
+            <label for="demo_calendar">Try Calendar</label>
+            <input type="text" id="demo_calendar" />  
+        </div>
+    
+        <!-- Calandar & Date demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_date">
+            <label for="demo_calendar_date">Try Calandar & Date</label>
+            <input type="text" id="demo_calendar_date" />  
+        </div>
+    
+        <!-- Calendar & Date & Time demo markup -->
+        <div data-role="fieldcontain" class="demo-cont" id="demo_cont_calendar_datetime">
+            <label for="demo_calendar_datetime">Try Calendar & Date & Time</label>
+            <input type="text" id="demo_calendar_datetime" />  
+        </div>
+    
+    </div>
+</body>
+</html>

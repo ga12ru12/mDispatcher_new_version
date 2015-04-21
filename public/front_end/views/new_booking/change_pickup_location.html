@@ -1,0 +1,116 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<div class="seachPickupBooking">
+    <div class="headerChangePickupLocation header">
+        <a class="backIcon" ui-sref="new_booking">
+            <div class="icon">
+                <img src="/images/cabzilla_icon/arrow.png">
+            </div>
+        </a>
+        <div class="title">Change Pickup Location</div>
+    </div>
+    <div class="content">
+        <div class="searchInput">
+            <span class="searchIcon">
+                <img src="/images/booking/searchIcon.png">
+            </span>
+            <div class="searchGoogleDiv">
+                <input type="text" ng-model="pickupLocation" class="pickupLocation" id="pickupLocationGoogle" placeholder="Search" ng-change="searchPickupGoogle()">
+            </div>
+            <div class="searchFoursDiv">
+                <input type="text" ng-model="pickupLocation" class="pickupLocation" id="pickupLocationFours" placeholder="Search" ng-change="seachPickupFours()">
+            </div>
+            <div style="display: none">
+                <input type="text" ng-model="pickupLat" class="pickupLat">
+                <input type="text" ng-model="pickupLng" class="pickupLng">
+                <input type="text" ng-model="pickupZipcode" class="pickupZipcode">
+                <input type="text" ng-model="submitGBtn" class="submitGBtn" ng-change="changePickUpG()">
+                <input type="text" ng-model="submitFBtn" class="submitFBtn" ng-change="changePickUpF()">
+            </div>
+        </div>
+        <div class="resultSearch">
+            <div class="autoCompleteDiv">
+
+            </div>
+            <!--<img src="/images/gif-load.gif" class="loading">-->
+        </div>
+        <div class="searchType">
+            <div class="btn-group" role="group">
+                <button class="button googleBtn cabzillaBtn">Google</button>
+                <button class="button foursBtn cabzillaBtn noSelected">Foursquare</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $jq(function(){
+        $jq('.seachPickupBooking .content .googleBtn').click(function(){
+            $jq('.seachPickupBooking .content .googleBtn').removeClass('noSelected');
+            $jq('.seachPickupBooking .content .foursBtn').addClass('noSelected');
+            $jq('.seachPickupBooking .content .searchFoursDiv').hide();
+            $jq('.seachPickupBooking .content .searchGoogleDiv').show();
+            $jq('.seachPickupBooking .content .autoCompleteDiv').hide();
+        });
+        //Search Location google
+        var input = (document.getElementById('pickupLocationGoogle'));
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        new google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            var pickupLocationBookingGoogle = {
+                lat: place.geometry.location.lat(),
+                lng: place.geometry.location.lng()
+            };
+            var zipcode = _.find( place.address_components , function(info){
+                if(info.types.indexOf('postal_code') !== -1){
+                    return info;
+                }
+            });
+            $jq('.seachPickupBooking .content .pickupLat').val(place.geometry.location.lat());
+            $jq('.seachPickupBooking .content .pickupLat').trigger('input');
+            $jq('.seachPickupBooking .content .pickupLng').val(place.geometry.location.lng());
+            $jq('.seachPickupBooking .content .pickupLng').trigger('input');
+            if(zipcode && zipcode.long_name){
+                $jq('.seachPickupBooking .content .pickupZipcode').val(zipcode.long_name);
+                $jq('.seachPickupBooking .content .pickupZipcode').trigger('input');
+            }
+            $jq('.seachPickupBooking .content #pickupLocationGoogle').val(autocomplete.getPlace().formatted_address);
+            $jq('.seachPickupBooking .content #pickupLocationGoogle').trigger('input');
+            $jq('.seachPickupBooking .content .submitGBtn').val(autocomplete.getPlace().formatted_address);
+            $jq('.seachPickupBooking .content .submitGBtn').trigger('input');
+        });
+
+
+        /*-----------------------Foursquare Search------------------------*/
+        $jq('.seachPickupBooking .content .foursBtn').click(function(){
+            $jq('.seachPickupBooking .content .foursBtn').removeClass('noSelected');
+            $jq('.seachPickupBooking .content .googleBtn').addClass('noSelected');
+            $jq('.seachPickupBooking .content .searchGoogleDiv').hide();
+            $jq('.seachPickupBooking .content .searchFoursDiv').show();
+            $jq('.seachPickupBooking .content .autoCompleteDiv').show();
+            $jq('.seachPickupBooking #pickupLocationFours').focus();
+            var tmpStr = $jq('.seachPickupBooking #pickupLocationFours').val();
+            $jq('.seachPickupBooking #pickupLocationFours').val('');
+            $jq('.seachPickupBooking #pickupLocationFours').val(tmpStr);
+            if(tmpStr){
+                $jq('.seachPickupBooking #pickupLocationFours').trigger('input')
+            }
+        });
+        $jq(document).on('click touchend', '.seachPickupBooking .content .autoCompleteDiv div', function(){
+            $jq('.seachPickupBooking .content .pickupLat').val($jq(this).find('.lat').val());
+            $jq('.seachPickupBooking .content .pickupLat').trigger('input');
+            $jq('.seachPickupBooking .content .pickupLng').val($jq(this).find('.lng').val());
+            $jq('.seachPickupBooking .content .pickupLng').trigger('input');
+            $jq('.seachPickupBooking .content .pickupZipcode').val('');
+            $jq('.seachPickupBooking .content .pickupZipcode').trigger('input');
+            $jq('.seachPickupBooking .content #pickupLocationFours').val($jq(this).find('.name').val());
+            $jq('.seachPickupBooking .content #pickupLocationFours').trigger('input');
+            $jq('.seachPickupBooking .content .submitFBtn').val($jq(this).find('.name').val());
+            $jq('.seachPickupBooking .content .submitFBtn').trigger('input');
+        });
+
+    });
+</script>

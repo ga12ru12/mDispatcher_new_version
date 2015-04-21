@@ -1,0 +1,447 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+        <li>
+            <a ui-sref="profile">
+                <label class="icon"><img src="/images/menu/menu_info.png"></label>
+                <label class="title">Profile</label>
+            </a>
+        </li>
+        <li class="active">
+            <a ui-sref="new_booking">
+                <label class="icon"><img src="/images/menu/menu_new_booking.png"></label>
+                <label class="title">New Booking</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="my_booking">
+                <label class="icon"><img src="/images/menu/menu_booking.png"></label>
+                <label class="title">My Bookings</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="report">
+                <label class="icon"><img src="/images/menu/menu_report.png"></label>
+                <label class="title">Report</label>
+            </a>
+        </li>
+        <!--<li>-->
+            <!--<a ui-sref="dashboard">-->
+                <!--<label class="icon"><img src="/images/menu/icon5.png"></label>-->
+                <!--<label class="title">Dashboard</label>-->
+            <!--</a>-->
+        <!--</li>-->
+        <li>
+            <a ui-sref="setting">
+                <label class="icon"><img src="/images/menu/ico-settings.png"></label>
+                <label class="title">Setting</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="logout">
+                <label class="icon"><img src="/images/menu/menu_logout.png"></label>
+                <label class="title">Logout</label>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="title">New Booking</div>
+    <span></span>
+</div>
+<div class="contentDiv newBookingDiv">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 iconDiv">
+                    <img src="/images/booking/phone.png" class="phone">
+                </div>
+                <div class="col-xs-10 col-sm-10 rowLineUnder">
+                    <input type="tel" ng-model="phoneRequestInfo" maxlength="25" ng-change="validatePhone(25)" ng-style="validatePhoneStyle" class="phoneNewBook">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 iconDiv">
+                    <img src="/images/booking/name.png" class="name">
+                </div>
+                <div class="col-xs-10 col-sm-10 rowLineUnder" ng-style="validateNameStyle">
+                    <input type="text" ng-model="nameRequestInfo" maxlength="30" ng-change="validateName(30)" ng-style="validateNameStyle">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1 col-md-1 iconDiv">
+            <img src="/images/booking/email.png" class="email">
+        </div>
+        <div class="col-xs-11 col-md-11 rowLineUnder" ng-style="validateEmailStyle">
+            <input type="text" ng-model="emailRequestInfo" ng-change="validateEmail()" ng-style="validateEmailStyle">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-1 col-md-1 iconDiv">
+            <img src="/images/booking/pin.png" class="pin">
+        </div>
+        <div class="col-xs-11 col-md-11 rowLineUnder">
+            <div class="row">
+                <div class="col-xs-2 col-md-2" ng-style="validatePickupNumberStyle" style="position: relative">
+                    <input type="text" ng-model="addressFromNumber" class="addressNumber" maxlength="5" ng-change="validateNumberPickup(5)" ng-style="validatePickupNumberStyle">
+                    <div class="thin_vertical_line"></div>
+                </div>
+                <div class="col-xs-10 col-md-10">
+                    <a ui-sref="pickupLocation">
+                        <input type="text" ng-model="addressFromRoad" class="searchPickupLocation" readonly="true">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="iconDown showMoreIcon">
+        <img src="/images/booking/downIcon.png">
+    </div>
+    <div class="moreInfo">
+        <div class="row">
+            <div class="col-xs-1 col-md-1 iconDiv">
+                <img src="/images/booking/maps.png" class="maps">
+            </div>
+            <div class="col-xs-11 col-md-11 rowLineUnder">
+                <div class="row">
+                    <div class="col-xs-2 col-md-2" ng-style="validateDesNumberStyle" style="position: relative">
+                        <input type="text" ng-model="addressToNumber" class="addressNumber" maxlength="5" ng-change="validateNumberDes(5)" ng-style="validateDesNumberStyle">
+                        <div class="thin_vertical_line"></div>
+                    </div>
+                    <div class="col-xs-10 col-md-10">
+                        <a ui-sref="destinationLocation">
+                            <input type="text" ng-model="addressToRoad" class="searchDestination" readonly="true">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 col-md-1 iconDiv">
+                <img src="/images/booking/time.png" class="time">
+            </div>
+            <div class="col-xs-11 col-md-11 timeBookingDiv rowLineUnder">
+                <!--<input type="text" ng-model="timeTextBooking" id="timeHidden" ng-change="changeTimeNewBooking()" style="display: none">-->
+                <input type="text" class="timeBooking" id="time" ng-model="timeNewBooking">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-1 col-md-1 iconDiv" ng-style="validateNoteStyle">
+                <img src="/images/booking/note.png" class="note">
+            </div>
+            <div class="col-xs-11 col-md-11 rowLineUnder">
+                <input type="text" ng-model="note" placeholder="Notes to driver" maxlength="30" ng-change="validateNote(30)" ng-style="validateNoteStyle">
+            </div>
+        </div>
+        <div class="infoBooking">
+            <div class="row">
+                <div class="col-xs-3 col-md-3">
+                    <div>Distance</div>
+                    <div>{{ distanceNewBooking }}</div>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <div>Duration</div>
+                    <div>{{ durationNewBooking }}</div>
+                </div>
+                <div class="col-xs-3 col-md-3 tit">
+                    <div>Fare</div>
+                    <div>{{ fareNewbooking }}</div>
+                </div>
+            </div>
+            <div class="iconUp">
+                <img src="/images/booking/arrow.png">
+            </div>
+        </div>
+    </div>
+
+    <ui-gmap-google-map center='map.center' events="map.events" refresh="true" zoom='map.zoom' id="mapBooking">
+        <ui-gmap-marker ng-repeat="marker in taxiMarkers" coords="marker.geo" idKey="marker.id" icon="taxiIcon"></ui-gmap-marker>
+        <ui-gmap-marker ng-repeat="marker in blackCarMarkers" coords="marker.geo" idKey="marker.id" icon="backCarIcon"></ui-gmap-marker>
+    </ui-gmap-google-map>
+
+    <div class="vehicleTypeSelect">
+        <div class="vtSlide">
+            <input type="range" name="slider-step" id="slider-step" min="0" max="100" class="123" value="0"/>
+            <input type="text" ng-change="setVehicleType(vehicleT)" ng-model="vehicleT" value="any" id="vehicleT" style="display: none">
+            <img src="/images/cabzilla_icon/vehicleType/circle.png" class="leftC circle">
+            <img src="/images/cabzilla_icon/vehicleType/circle.png" class="midC circle">
+            <img src="/images/cabzilla_icon/vehicleType/circle.png" class="rightC circle">
+        </div>
+        <div class="vtName">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns anyV">Any</div>
+                <div class="col-xs-4 col-sm-4 columns blackcarV">Black Car</div>
+                <div class="col-xs-4 col-sm-4 columns taxiV">Taxi</div>
+            </div>
+        </div>
+    </div>
+    <div class="vehicleTypeSelectDetail">
+        <div class="blackCar row">
+            <div class="col-xs-6 col-sm-6 large-6 columns">
+                <div class="blackCarSelect selected">Black Car</div>
+            </div>
+            <div class="col-xs-6 col-sm-6 large-6 columns">
+                <div class="SUVSelect">SUV</div>
+            </div>
+        </div>
+        <div class="taxi row">
+            <div class="col-xs-6 col-sm-6 large-6 columns">
+                <div class="taxiSelect selected">Taxi</div>
+            </div>
+            <div class="col-xs-6 col-sm-6 large-6 columns">
+                <div class="taxiVanSelect">Taxi Van</div>
+            </div>
+        </div>
+    </div>
+    <div class="requestDiv">
+        <div class="requestBtn">
+            <button class="cabzillaBtn btn btn-primary btn-lg" ng-click="requestBooking()">Request</button>
+        </div>
+        <div class="estimate">
+            <span class="messageNewBooking">{{ messageNewBooking }}</span>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="notiNewBookingModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div>{{ requestBookingResult }}</div>
+            <div>
+                <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button" ng-click="requestBookResultAction()">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="dateTimePickerModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Time booking</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="timePicker"></div>
+                    <input type="text" class="timeHidden" ng-model="timePicker">
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 col-sm-8 large-8 columns hour">
+                        <select data-ng-options="option.name for option in hourOptions" data-ng-model="hour" class="form-control"></select>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 large-4 columns minute">
+                        <select data-ng-options="option.name for option in minuteOptions" data-ng-model="minute" class="form-control"></select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary nowBtn">Now</button>
+                <button type="button" class="btn btn-danger" ng-click="changeTimeNewBooking()">Set</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $jq(".phoneNewBook").intlTelInput({
+        utilsScript: '/javascripts/phone/lib/libphonenumber/build/utils.js'
+    });
+    $jq(function(){
+        $jq('.timeBooking').click(function(){
+            $jq('#dateTimePickerModal').modal('show');
+        });
+        $jq('#dateTimePickerModal .timePicker').datepicker({
+            todayHighlight: true
+        });
+        $jq('#dateTimePickerModal .timePicker').datepicker('update', new Date());
+        $jq('#dateTimePickerModal .nowBtn').click(function(){
+            $jq('#dateTimePickerModal .timePicker').datepicker('update', new Date());
+            $jq('.timeHidden').val(new moment($jq('#dateTimePickerModal .timePicker').datepicker('getDate')).format('MM/DD/YYYY'));
+            $jq('.timeHidden').trigger('input');
+        });
+        $jq('#dateTimePickerModal .timePicker').datepicker().on('changeDate', function(e){
+            $jq('.timeHidden').val(new moment($jq('#dateTimePickerModal .timePicker').datepicker('getDate')).format('MM/DD/YYYY'));
+            $jq('.timeHidden').trigger('input');
+        });
+
+        var checkNow = true;
+//        $jq('#time').mobiscroll().calendar({
+//            controls: ['calendar', 'time'],
+//            mode: 'mixed',
+//            onSelect: function(valueText){
+//                $jq('#timeHidden').val(valueText);
+//                $jq('#timeHidden').trigger('input');
+//            }
+//        });
+//        $jq('#time').click(function(){
+//            setTimeout(function(){
+//                $jq('.dwwr .dwbc').prepend('<div class="dwbw dwb-now"><div tabindex="0" role="button" class="dwbNow dwb-e dwb">Now</div></div>');
+//            }, 500);
+//        });
+//        $jq(document).on('click','.dwwr .dwbc .dwbNow', function(){
+//            $jq('#time').mobiscroll('setVal', new Date());
+//        });
+
+
+        $jq('.infoBooking').click(function(){
+            $jq('.moreInfo').slideUp('slow');
+        });
+        $jq('.showMoreIcon').click(function(){
+            $jq('.moreInfo').slideDown('slow');
+        });
+        $jq('.infoBooking').click(function(){
+            $jq('.moreInfo').slideUp('slow');
+        });
+        var slideInterval;
+        $jq('.vehicleTypeSelectDetail').hide();
+        $jq('.123').slider({
+            stop: function( event, ui ) {
+                clearInterval(slideInterval);
+                var value = $jq(this).val();
+                if(value < 26){
+                    $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/any.png")');
+                    slideInterval = setInterval(function(){
+                        value--;
+                        if(value > 0){
+                            $jq('.123').val(value).slider('refresh');
+                        }else{
+                            clearInterval(slideInterval);
+                            $jq('.vehicleTypeSelectDetail').hide();
+                            $jq('#vehicleT').val('any');
+                            $jq('#vehicleT').trigger('input');
+                        }
+                    }, 10);
+                }else if( value >=26 && value <=76){
+                    $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/black car.png")');
+                    slideInterval = setInterval(function(){
+                        if(value >= 26 && value < 50){
+                            value++;
+                            $jq('.123').val(value).slider('refresh');
+                        }else if( value > 50 && value <=76 ){
+                            value--;
+                            $jq('.123').val(value).slider('refresh');
+                        }else{
+                            clearInterval(slideInterval);
+                            $jq('.vehicleTypeSelectDetail').show();
+                            $jq('.vehicleTypeSelectDetail .blackCar').show();
+                            $jq('.vehicleTypeSelectDetail .taxi').hide();
+                            $jq('#vehicleT').val('blackcar');
+                            $jq('#vehicleT').trigger('input');
+                        }
+                    }, 10);
+                }else{
+                    $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/taxi.png")');
+                    slideInterval = setInterval(function(){
+                        value++;
+                        if(value < 99){
+                            $jq('.123').val(value).slider('refresh');
+                        }else{
+                            clearInterval(slideInterval);
+                            $jq('.vehicleTypeSelectDetail').show();
+                            $jq('.vehicleTypeSelectDetail .blackCar').hide();
+                            $jq('.vehicleTypeSelectDetail .taxi').show();
+                            $jq('#vehicleT').val('taxi');
+                            $jq('#vehicleT').trigger('input');
+                        }
+                    }, 10);
+                }
+            }
+        });
+        $jq('.vtSlide .leftC').click(function(){
+            clearInterval(slideInterval);
+            var value = $jq('.123').val();
+            $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/any.png")');
+            slideInterval = setInterval(function(){
+                value--;
+                if(value > 0){
+                    $jq('.123').val(value).slider('refresh');
+                }else{
+                    clearInterval(slideInterval);
+                    $jq('.vehicleTypeSelectDetail').hide();
+                    $jq('#vehicleT').val('any');
+                    $jq('#vehicleT').trigger('input');
+                }
+            }, 10);
+        });
+        $jq('.vtSlide .rightC').click(function(){
+            clearInterval(slideInterval);
+            var value = $jq('.123').val();
+            $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/taxi.png")');
+            slideInterval = setInterval(function(){
+                value++;
+                if(value < 99){
+                    $jq('.123').val(value).slider('refresh');
+                }else{
+                    clearInterval(slideInterval);
+                    $jq('.vehicleTypeSelectDetail').show();
+                    $jq('.vehicleTypeSelectDetail .blackCar').hide();
+                    $jq('.vehicleTypeSelectDetail .taxi').show();
+                    $jq('#vehicleT').val('taxi');
+                    $jq('#vehicleT').trigger('input');
+                }
+            }, 10);
+        });
+        $jq('.vtSlide .midC').click(function(){
+            clearInterval(slideInterval);
+            var value = $jq('.123').val();
+            $jq('.ui-slider-track .ui-btn.ui-slider-handle').css('background-image','url("/images/cabzilla_icon/vehicleType/black car.png")');
+            slideInterval = setInterval(function(){
+                if(value < 50){
+                    value++;
+                    $jq('.123').val(value).slider('refresh');
+                }else if( value > 50){
+                    value--;
+                    $jq('.123').val(value).slider('refresh');
+                }else{
+                    clearInterval(slideInterval);
+                    $jq('.vehicleTypeSelectDetail').show();
+                    $jq('.vehicleTypeSelectDetail .blackCar').show();
+                    $jq('.vehicleTypeSelectDetail .taxi').hide();
+                    $jq('#vehicleT').val('blackcar');
+                    $jq('#vehicleT').trigger('input');
+                }
+            }, 10);
+        });
+        $jq('.vehicleTypeSelectDetail .blackCarSelect').click(function(){
+            $jq(this).addClass('selected');
+            $jq('.vehicleTypeSelectDetail .SUVSelect').removeClass('selected');
+            $jq('#vehicleT').val('blackcar');
+            $jq('#vehicleT').trigger('input');
+        });
+        $jq('.vehicleTypeSelectDetail .SUVSelect').click(function(){
+            $jq(this).addClass('selected');
+            $jq('.vehicleTypeSelectDetail .blackCarSelect').removeClass('selected');
+            $jq('#vehicleT').val('suv');
+            $jq('#vehicleT').trigger('input');
+        });
+        $jq('.vehicleTypeSelectDetail .taxiSelect').click(function(){
+            $jq(this).addClass('selected');
+            $jq('.vehicleTypeSelectDetail .taxiVanSelect').removeClass('selected');
+            $jq('#vehicleT').val('taxi');
+            $jq('#vehicleT').trigger('input');
+        });
+        $jq('.vehicleTypeSelectDetail .taxiVanSelect').click(function(){
+            $jq(this).addClass('selected');
+            $jq('.vehicleTypeSelectDetail .taxiSelect').removeClass('selected');
+            $jq('#vehicleT').val('taxivan');
+            $jq('#vehicleT').trigger('input');
+        });
+        $jq('.ui-slider-handle').click(function(){
+            return false;
+        });
+    });
+
+
+</script>

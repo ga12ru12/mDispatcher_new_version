@@ -1,0 +1,84 @@
+
+<div class="signUpDiv cabzillaSignUp">
+    <div class="headerSignUp">
+        <div class="icon">
+            <a class="backIcon" ui-sref="login"><img src="/images/cabzilla_icon/arrow.png"></a>
+        </div>
+        <div class="title">Sign Up</div>
+    </div>
+    <div class="content">
+
+        <form role="form" class="form-signin" ng-submit="signUp()" name="signupForm">
+            <!--<input type="email" autofocus="" required="" placeholder="Email address" class="form-control">-->
+            <!--<input type="password" required="" placeholder="Password" class="form-control">-->
+            <!--<button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>-->
+            <fieldset>
+                <div class="row nameDiv">
+                    <div class="col-md-6">
+                        <div class="form-group" ng-style="checkFirstNameSignUp" >
+                            <input type="text" placeholder="First Name" ng-model="signup_firstName" name="signup_firstName" class="signup_firstName" ng-change="checkFistNameSignUpAction()">
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng-style="checkLastNameSignUp" >
+                        <input type="text" placeholder="Last Name" ng-model="signup_lastName" name="signup_lastName" class="signup_lastName" ng-change="checkLastNameSignUpAction()">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="row" ng-style="checkEmailSignUp" >
+                    <div>
+                        <input type="text" placeholder="Email" ng-model="signup_email" class="signup_email" ng-change="checkEmailSignUpAction()">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="row" ng-style="checkConfirmEmailSignUp" >
+                    <div>
+                        <input type="text" placeholder="Confirm Email" ng-model="signup_confirmEmail" ng-change="checkConfirmEmailSignUpAction()">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="row" ng-style="checkPhoneSignUp" >
+                    <div>
+                        <input type="tel" placeholder="Phone Number" ng-model="signup_phoneNumber" class="signup_phoneNumber" ng-change="checkPhoneSignUpAction()">
+
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="row" ng-style="checkPasswordSignUp" >
+                    <div>
+                        <input type="password" placeholder="Password" ng-model="signup_password" class="signup_password" ng-change="checkPasswordSignUpAction()">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="row" ng-style="checkConfirmPasswordSignUp" >
+                    <div>
+                        <input type="password" placeholder="Confirm Password" ng-model="signup_confirmPassword" class="signup_confirmPassword" ng-change="checkConfirmPasswordSignUpAction()">
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-lg btn-primary submitBtn cabzillaBtn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!--Notification when Sign up-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="notiSignupModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div>{{notiSignup}}</div>
+            <div>
+                <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $jq(".signup_phoneNumber").intlTelInput({
+        utilsScript: '/javascripts/phone/lib/libphonenumber/build/utils.js'
+    });
+</script>

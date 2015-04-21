@@ -1,0 +1,108 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" ui-sref="profile">
+        <a class="backIcon"><img src="/images/cabzilla_icon/arrow.png"></a>
+    </button>
+    <div class="title">Edit Profile</div>
+    <span class="menu-icon saveProfile" ng-click="editInfo()">
+        <img src="/images/cabzilla_icon/save.png">
+    </span>
+</div>
+<div class="contentDiv infoDiv infoEditDiv">
+    <div>
+        <div class="imgInfo">
+            <div>
+                <img ng-src="{{userImage}}">
+                <div class="name">{{ firstNameInfo +' '+ lastNameInfo }}</div>
+            </div>
+        </div>
+        <div class="userInfo">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Phone
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    <input type="tel" placeholder="Phone Number" ng-model="phoneInfoEdit" class="phoneInfoEdit">
+                    <!--<input type="tel" ng-model="phoneInfoEdit" name="phoneInfo" class="phoneInfo" maxlength="25" ng-change="editPhoneInfo(25)"></intl-tel>-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    First name
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    <input type="text" ng-model="firstNameInfoEdit" name="firstNameInfo" maxlength="12" ng-change="editFirstNameInfo(12)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Last name
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    <input type="text" ng-model="lastNameInfoEdit" name="lastNameInfo" maxlength="12" ng-change="editLastNameInfo(12)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Email
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    <input type="text" ng-model="emailInfo" name="emailInfo" disabled>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Address
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    <input type="text" ng-model="addressInfoEdit" name="addressInfo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="editAvatarModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div>Select an image file: <input type="file" id="fileInput" /></div>
+            <div class="cropArea">
+                <img-crop image="myImage" result-image="myCroppedImage" result-image-size="100" area-min-size="200" id="divCropAvatar" on-load-done="endLoading()"></img-crop>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-xs-5 col-sm-6 columns">
+                        <button class="btn btn-lg cabzillaBtn cancelEditAvatarBtn" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div class="col-xs-5 col-sm-6 columns">
+                        <button class="btn btn-lg radius cabzillaBtn editAvatarBtn" ng-click="editAvatarAction()">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cropArea {
+        background: #E4E4E4;
+        overflow: hidden;
+        width:500px;
+        height:350px;
+    }
+</style>
+
+<script type="application/javascript">
+    $jq(function(){
+        $jq('.imgInfo img').click(function(){
+            $jq('#editAvatarModal').modal('show');
+        });
+        $jq(".phoneInfoEdit").intlTelInput({
+            utilsScript: '/javascripts/phone/lib/libphonenumber/build/utils.js'
+        });
+    });
+</script>

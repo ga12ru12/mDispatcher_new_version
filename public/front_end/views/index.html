@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html ng-app="mDispatcher">
+<head>
+    <meta charset="utf-8">
+    <!--<meta content="IE=edge" http-equiv="X-UA-Compatible">-->
+
+    <link rel="apple-touch-icon-precomposed" href="/images/cabzilla_icon/ic_launcher_santa.png"/>
+    <link rel="shortcut icon" sizes="60x60" href="/images/cabzilla_icon/ic_launcher_santa.png">
+    <link rel="apple-touch-icon" href="/images/login/favicon.png" />
+    <title>mDispatcher Cabzilla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="application/javascript" src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script type="application/javascript" src="/javascripts/socket.io-1.1.0.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true&v=3.exp&libraries=places"></script>
+    <script type="application/javascript" src="/javascripts/moment.min.js"></script>
+    <script type="application/javascript" src="/lib/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script type="application/javascript" src="/javascripts/AngularJs/angular-file-upload-shim.min.js"></script>
+    <script type="application/javascript" src="/javascripts/ngImgCrop/compile/unminified/ng-img-crop.js"></script>
+    <script type="application/javascript" src="/javascripts/AngularJs/angular-cookies.min.js"></script>
+    <script type="application/javascript" src="/javascripts/AngularJs/angular-sanitize.min.js"></script>
+    <script type="application/javascript" src="/javascripts/AngularJs/angular-file-upload.min.js"></script>
+    <script type="application/javascript" src="/javascripts/AngularJs/angular-google-maps.min.js"></script>
+    <script type="application/javascript" src="/javascripts/ngImgCrop/compile/unminified/ng-img-crop.js"></script>
+    <script type="application/javascript" src="/lib/angular-ui-router-anim-in-out/anim-in-out.js"></script>
+
+    <!--AngularJS services-->
+    <script type="application/javascript" src="/front_end/services/serverConfig.js"></script>
+    <script type="application/javascript" src="/front_end/services/socket.js"></script>
+    <script type="application/javascript" src="/front_end/services/user.js"></script>
+    <script type="application/javascript" src="/front_end/services/authen.js"></script>
+    <script type="application/javascript" src="/front_end/services/new_booking_location.js"></script>
+    <script type="application/javascript" src="/front_end/services/booking_detail.js"></script>
+    <script type="application/javascript" src="/front_end/services/my_booking.js"></script>
+    <!--AngularJS controllers-->
+    <script type="application/javascript" src="/front_end/controllers/app.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/login/login.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/login/forgot_password.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/login/sign_up.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/new_booking/new_booking.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/new_booking/change_pickup_location.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/new_booking/change_destination_location.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/profile/profile_detail.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/profile/profile_edit.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/my_booking/booking.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/my_booking/reservation.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/my_booking/detail.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/report.js"></script>
+    <script type="application/javascript" src="/front_end/controllers/setting/change_password.js"></script>
+
+    <!--Module Javascript-->
+    <link rel="stylesheet" href="/javascripts/phone/css/intlTelInput.css">
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <script type="application/javascript" src="/javascripts/jquery-ui.min.js"></script>
+    <script type="application/javascript" src="/javascripts/async.js"></script>
+    <script type="application/javascript" src="/javascripts/underscore-min.js"></script>
+    <script type="application/javascript" src="/javascripts/jquery.bpopup.min.js"></script>
+    <script type="application/javascript" src="/javascripts/phone/js/intlTelInput.min.js"></script>
+    <script type="application/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="application/javascript" src="/lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+    <script type="application/javascript" src="/lib/jquery.mobile.custom/jquery.mobile.custom.js"></script>
+    <script type="application/javascript" src="/javascripts/lodash.min.js"></script>
+    <!--<script type="application/javascript" src="/lib/mobiscroll.calendar/js/mobiscroll.custom-2.14.3.min.js"></script>-->
+    <script type="application/javascript" src="/lib/bootstrapformhelpers/js/bootstrap-formhelpers.js"></script>
+    <script type="application/javascript" src="/lib/DataTables-1.10.2/media/js/jquery.dataTables.min.js"></script>
+    <script type="application/javascript" src="//cdn.datatables.net/plug-ins/3cfcc339e89/sorting/date-uk.js"></script>
+    <script type="application/javascript" src="/lib/eternicode-bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+    <!-- CSS -->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="all" rel="stylesheet">
+    <link rel="stylesheet" href="/lib/jasny-bootstrap/css/jasny-bootstrap.min.css">
+    <!--<link rel='stylesheet' href='/lib/mobiscroll.calendar/css/mobiscroll.custom-2.14.3.min.css'/>-->
+    <link rel="stylesheet" href="/lib/DataTables-1.10.2/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/lib/jquery.mobile.custom/jquery.mobile.custom.structure.min.css">
+    <link rel="stylesheet" href="/lib/angular-ui-router-anim-in-out/css/anim-in-out.css">
+    <link rel='stylesheet' href='/stylesheets/login.css'/>
+    <link rel='stylesheet' href='/stylesheets/cabzilla/login.css'>
+    <link rel='stylesheet' href='/stylesheets/cabzilla/custom.css'>
+    <link rel="stylesheet" href="/lib/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/javascripts/ngImgCrop/compile/unminified/ng-img-crop.css">
+    <link rel="stylesheet" href="/lib/eternicode-bootstrap-datepicker/css/datepicker3.css">
+</head>
+
+<!-- apply our angular app to our site -->
+<body>
+
+    <div ui-view ng-cloak="" id="angularCtrl" class="anim-in-out anim-fade"></div>
+
+    <div id="loadingPopup" style="" on><img src="/images/loadinfo.net.gif"> </div>
+
+    <!--Notification when connect fail-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="bookingNotificationModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div>{{ notiBooning }}</div>
+                <div>
+                    <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

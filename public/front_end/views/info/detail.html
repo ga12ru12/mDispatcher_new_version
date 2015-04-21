@@ -1,0 +1,108 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+        <li class="active">
+            <a ui-sref="profile">
+                <label class="icon"><img src="/images/menu/menu_info.png"></label>
+                <label class="title">Profile</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="new_booking">
+                <label class="icon"><img src="/images/menu/menu_new_booking.png"></label>
+                <label class="title">New Booking</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="my_booking">
+                <label class="icon"><img src="/images/menu/menu_booking.png"></label>
+                <label class="title">My Bookings</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="report">
+                <label class="icon"><img src="/images/menu/menu_report.png"></label>
+                <label class="title">Report</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="setting">
+                <label class="icon"><img src="/images/menu/ico-settings.png"></label>
+                <label class="title">Setting</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="logout">
+                <label class="icon"><img src="/images/menu/menu_logout.png"></label>
+                <label class="title">Logout</label>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="title">Profile</div>
+    <span class="iconEdit" ui-sref="editProfile">
+        <img src="/images/cabzilla_icon/editIcon.png">
+    </span>
+</div>
+<div class="contentDiv infoDiv">
+    <div>
+        <div class="imgInfo">
+            <div>
+                <img ng-src="{{userImage}}">
+                <div class="name">{{ firstNameInfo +' '+ lastNameInfo }}</div>
+            </div>
+        </div>
+        <div class="userInfo">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Phone
+                </div>
+                <div class="col-xs-8 col-sm-8 columns">
+                    {{ phoneInfo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    First name
+                </div>
+                <div class="small-8 large-8 columns">
+                    {{ firstNameInfo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Last name
+                </div>
+                <div class="small-8 large-8 columns">
+                    {{ lastNameInfo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Email
+                </div>
+                <div class="small-8 large-8 columns">
+                    {{ emailInfo }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 columns tit">
+                    Address
+                </div>
+                <div class="small-8 large-8 columns">
+                    {{ addressInfo }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

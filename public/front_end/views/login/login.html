@@ -1,0 +1,118 @@
+<!--<script type="application/javascript" src="/javascripts/bootstrap.min.js"></script>-->
+<!--<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />-->
+<!--<link rel='stylesheet' href='/stylesheets/login.css' />-->
+<!--<link rel='stylesheet' href='/stylesheets/cabzilla/login.css'>-->
+
+<div class="loginDiv CabzillaLogin">
+    <div class="logo">
+        <img src="/images/cabzilla_icon/logo_cabzilla.png">
+    </div>
+    <form role="form" class="form-signin" ng-submit="loginAction()">
+        <!--<input type="email" autofocus="" required="" placeholder="Email address" class="form-control">-->
+        <!--<input type="password" required="" placeholder="Password" class="form-control">-->
+        <!--<button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>-->
+        <fieldset>
+            <div class="row">
+                <label for="email">Email</label>
+                <div style=" width: 100%; ">
+                    <input type="text" autocapitalize="off" placeholder="name@example.com" name="email" id="email" ng-model="email" class="emailLogin">
+                </div>
+            </div>
+            <div class="row">
+                <label for="password">Password</label>
+                <div style=" width: 100%; ">
+                    <input type="password" name="password" id="password" placeholder="&#9679; &#9679; &#9679; &#9679; &#9679;" ng-model="password" class="paswordLogin">
+                </div>
+            </div>
+        </fieldset>
+        <div class="row">
+            <div class="col-md-5" style=" padding-left: 0; float: left;">
+                <a class="btn btn-lg btn-primary btn-block cabzillaBtn signUpBtn" ui-sref="signup">Sign Up</a>
+            </div>
+            <div class="col-md-5 loginBtn">
+                <button type="submit" class="btn btn-lg btn-primary btn-block cabzillaBtn">Login</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="forgotPassDiv">
+        <a ui-sref="forgotPassword" class="forgotPasswordBtn"><h4>Forgot password?</h4></a>
+    </div>
+</div>
+
+<!--&lt;!&ndash;Include Page Forgot Password&ndash;&gt;-->
+<!--<% include ../forgotPassword.ejs %>-->
+<!--&lt;!&ndash;Include Page Forgot Password&ndash;&gt;-->
+<!--<% include ../signup/signup_cabzilla.ejs %>-->
+
+<!--Notification when login-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="notiLoginModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div ng-bind-html="notiLogin"></div>
+            <div>
+                <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Notification when connect fail-->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="noConnectLoginModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div>Connect to server fail.<br> Please check your connection or try later.</div>
+            <div>
+                <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script type="application/javascript">-->
+    <!--var check = true;-->
+    <!--$jq(function(){-->
+        <!--addToHomescreen();-->
+        <!--angular.element('#LoginCtrlAngularJs').scope().getcookie();-->
+
+        <!--$jq('.forgotPassDiv .forgotPasswordBtn').click(function(event){-->
+            <!--event.preventDefault();-->
+            <!--$jq('.forgotPasswordDiv .resetEmail').val('');-->
+            <!--check = false;-->
+            <!--$jq(".forgotPasswordDiv").show("slide", { direction: "right" }, 500);-->
+            <!--$jq(".loginDiv").hide("slide", { direction: "left" }, 500);-->
+            <!--resizeLogin();-->
+        <!--});-->
+        <!--$jq('.forgotPasswordDiv .headerForgotPassword .backIcon').click(function(event){-->
+            <!--check = true;-->
+            <!--$jq(".forgotPasswordDiv").hide("slide", { direction: "right" }, 500);-->
+            <!--$jq(".loginDiv").show("slide", { direction: "left" }, 500);-->
+            <!--resizeLogin();-->
+        <!--});-->
+
+        <!--resizeLogin();-->
+        <!--$jq(window).resize(function(){-->
+            <!--resizeLogin();-->
+        <!--});-->
+
+        <!--function resizeLogin(){-->
+            <!--if(check){-->
+                <!--if($jq(window).height() > 380){-->
+                    <!--$jq('footer').css('position', 'absolute');-->
+                <!--}else{-->
+                    <!--$jq('footer').css('position', 'relative');-->
+                <!--}-->
+            <!--}else{-->
+                <!--$jq('footer').css('position', 'absolute');-->
+            <!--}-->
+        <!--}-->
+
+        <!--//Sign up Page-->
+        <!--$jq('.signUpBtn').click(function(event){-->
+            <!--event.preventDefault();-->
+            <!--$jq(".signUpDiv").show("slide", { direction: "right" }, 500);-->
+            <!--$jq(".loginDiv").hide("slide", { direction: "left" }, 500);-->
+            <!--$jq(".signUpDiv .has-error").removeClass('has-error');-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->

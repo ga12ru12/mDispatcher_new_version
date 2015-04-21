@@ -1,0 +1,1100 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+/*----------------------Loading Icon--------------------------*/
+.loadingI {
+    width: 30px;
+    height: 30px;
+    border: 5px solid #ccc;
+    position: fixed;
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    border-radius: 50%;
+}
+
+.__b-popup1__{
+    background-color: rgba(0,0,0,0.9) !important;
+}
+
+.loadingI:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 10px;
+    background: white;
+    top: 5px;
+    left: -10px;
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+a {
+  color: #00B7FF;
+}
+html, body {
+    height: inherit;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea, select{
+    height: 1.7rem;
+}
+.column, .columns{
+    padding-right: 0;
+    padding-left: 0;
+    height: 100%;
+}
+.row .row{
+    margin-left: 0px;
+    margin-right: 0;
+}
+.row{
+    max-width: 100%;
+    /*height: 100%;*/
+}
+.main-section{
+    position: relative;
+}
+input:not(.normalInput), select{
+    background: none repeat scroll 0 0 transparent !important;
+    border: 0 none !important;
+    display: table-cell !important;
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 2px 0 !important;
+    box-shadow: none !important;
+}
+.crowncarBtn{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #CEC165;
+}
+.crowncarBtn:hover, .crowncarBtn:focus{
+    background-color: #A79C4F !important;
+}
+button{
+    outline:0 !important;
+}
+.button-group>li {
+    margin: 0 -4px;
+}
+#myModal{
+    width: 200px;
+    height: 200px
+}
+.inner-wrap .main-section .mainContent {
+    overflow-y: auto;
+    min-height: 400px;
+}
+
+#firstModal{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#firstModal .yesBtn{
+    float: left;
+    margin-left: 10px;
+    width: 110px;
+}
+#firstModal .noBtn{
+    float: right;
+    margin-right: 10px;
+    width: 110px;
+}
+#notiModal {
+    width: 290px;
+    text-align: center;
+    min-height: 0;
+    top: 200px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#disconnectModal{
+    width: 290px;
+    text-align: center;
+    min-height: 0;
+    top: 200px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: relative;
+}
+.notiDispatchModal {
+    width: 290px;
+    text-align: center;
+    min-height: 0;
+    top: 200px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#disconnectModal .logoutBtn{
+    margin-top: 40px;
+}
+#disconnectModal img{
+    width: 120px;
+    margin-bottom: 20px;
+}
+#disconnectModal .secLogout{
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 70px;
+}
+#disconnectModal .secLogout h2{
+    color: #CEC165;
+}
+#loadingPopup{
+    display: none;
+}
+#loadingPopup img{
+    width: 24px;
+}
+
+.menuDispatcher ul .selected{
+    background-color: #CEC165;
+}
+
+button:active, button:focus, button.active {
+    outline: 0!important;
+    -webkit-box-shadow: none!important;
+    -moz-box-shadow: none!important;
+    box-shadow: none!important;
+}
+.mBtn{
+    background-color: #cec165;
+    border: thin solid #cec165;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+button, .button, a, dd, dl{
+    cursor: default !important;
+}
+
+/*----------------------CSS NG-Table----------------------*/
+.pager .next>a, .pager .next>span {
+    float: right;
+}
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+.pager {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+    overflow: hidden;
+}
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+.pager li{
+    overflow: hidden;
+}
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+}
+.pager .disabled>a, .pager .disabled>a:hover, .pager .disabled>a:focus, .pager .disabled>span {
+    color: #999;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+
+/*----------------------CSS CALENDER----------------------*/
+#ui-datepicker-div .ui-datepicker-calendar tbody tr{
+    background-color: #EEEEEE;
+}
+.ui-timepicker-div dl .ui_tpicker_hour, .ui-timepicker-div dl .ui_tpicker_minute {
+    margin: 0 10px 0px 40%;
+    background-color: white;
+}
+.ui-timepicker-div dl .ui_tpicker_hour_label, .ui-timepicker-div dl .ui_tpicker_minute_label {
+    line-height: 33px;
+}
+
+/*----------------------CSS Menu----------------------*/
+ul.off-canvas-list li a:hover {
+    background: #A79C4F;
+}
+.left-off-canvas-menu{
+    background: #0E0D1B;
+}
+.tab-bar{
+    background: #C6C6C6;
+}
+.left-small {
+    border-right: none;
+}
+.right-small {
+    border-left: none;
+}
+.tab-bar .menu-icon span::after {
+    box-shadow: 0 0px 0 1px black,0 7px 0 1px black,0 14px 0 1px black;
+}
+.titleApp{
+    font-size: 18px;
+    color: black;
+}
+.menuDispatcher a img{
+    margin-top: -2px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+.editProfile{
+    cursor: pointer;
+}
+
+/*----------------------CSS Page Profile----------------------*/
+.infoDiv{
+    position: absolute;
+    width: 100%;
+}
+.infoDiv .imgInfo{
+    background-color: #0E0D1B;
+    height: 290px;
+    width: 100%;
+    position: relative;
+}
+.infoDiv .imgInfo>div{
+    z-index: 400;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 180px;
+    height: 200px;
+    position: absolute;
+}
+.infoDiv .imgInfo img{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 4px white;
+}
+.infoDiv .imgInfo .name{
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.infoDiv .userInfo .row{
+    border-top: #c0c0c0 solid 1px;
+    line-height: 32px;
+    padding: 0 15px;
+}
+.infoDiv .userInfo .row .tit{
+    color: #999999;
+}
+.editProfile img{
+    margin-left: -27px;
+    margin-top: -10px;
+}
+#editAvatarModal .cancelEditAvatarBtn, #editAvatarModal .editAvatarBtn{
+    margin-top: 20px;
+    width: 98%;
+}
+
+/*----------------------CSS Page Edit Profile----------------------*/
+.editInfoDiv {
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+.editInfoDiv .imgInfo{
+    background-color: #0E0D1B;
+    height: 290px;
+    width: 100%;
+    position: relative;
+}
+.editInfoDiv .imgInfo>div{
+    z-index: 400;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 180px;
+    height: 200px;
+    position: absolute;
+}
+.editInfoDiv .imgInfo img{
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 4px white;
+    cursor: pointer;
+}
+.editInfoDiv .imgInfo .name{
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+.editInfoDiv .userInfo .row{
+    border-top: #c0c0c0 solid 1px;
+    line-height: 32px;
+    padding: 0 15px;
+}
+.editInfoDiv .userInfo .row .tit{
+    color: #999999;
+}
+.tab-bar .left-small .backIcon img{
+    margin-top: -7px;
+}
+.saveProfile {
+    cursor: pointer;
+}
+.saveProfile img {
+    margin-top: -8px;
+    margin-left: -17px;
+}
+.editInfoDiv .mainContent .imgInfo #inputId{
+    display: none !important;
+}
+#editAvatarModal .editAvatarBtn{
+    margin-top: 20px;
+    width: 100%;
+}
+#editAvatarModal .cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:100%;
+    height:350px;
+}
+
+/*----------------------CSS Page New Booking----------------------*/
+.newBookingDiv .mainContent #mapBooking .centerMarker{
+    position:absolute;
+    /*url of the marker*/
+    background:url('/images/booking/pinIcon.png') no-repeat;
+    /*center the marker*/
+    top:50%;left:50%;
+    z-index:10;
+    /*fix offset when needed*/
+    margin-left:-16px;
+    margin-top:-56px;
+    /*size of the image*/
+    height:61px;
+    width:33px;
+    cursor:pointer;
+}
+.newBookingDiv .mainContent .moreInfo{
+    display: none;
+}
+.newBookingDiv .mainContent .requestDiv{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 120px;
+    bottom: 0px;
+}
+.newBookingDiv .mainContent .formNewBooking > .row > .columns:nth-child(2){
+    border-bottom: #c0c0c0 solid 1px;
+    margin-bottom: -1px;
+}
+.newBookingDiv .mainContent .formNewBooking .moreInfo > .row:not(:nth-child(5)) > .columns:nth-child(2){
+    border-bottom: #c0c0c0 solid 1px;
+}
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1){
+    text-align: center;
+}
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .phone{
+    margin-top: 8px;
+    height: 16px;
+}
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .name{
+    margin-top: 6px;
+    height: 18px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .email{
+    margin-top: 9px;
+    height: 14px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .pin{
+    margin-top: 8px;
+    height: 19px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .maps{
+    margin-top: 6px;
+    height: 19px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .car{
+    margin-top: 8px;
+    height: 15px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .fleet{
+    margin-top: 5px;
+    width: 21px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .time{
+    margin-top: 7px;
+    height: 18px;
+}
+
+.newBookingDiv .mainContent .formNewBooking .row > .columns:nth-child(1) .note{
+    margin-top: 5px;
+    height: 20px;
+}
+.newBookingDiv .mainContent .formNewBooking .infoBooking > .columns:nth-child(2){
+     border-bottom: none!important;
+ }
+.newBookingDiv .mainContent .row input{
+    padding-left: 10px !important;
+}
+.newBookingDiv .mainContent .row select{
+    padding-left: 8px !important;
+}
+.newBookingDiv .mainContent .formNewBooking > .row .addressFrom{
+    border-bottom: none!important;
+}
+.newBookingDiv .mainContent .formNewBooking .row .addressTo{
+    /*border-top: #c0c0c0 solid 1px;*/
+}
+.newBookingDiv .mainContent .infoBooking .row{
+    padding-top: 5px;
+}
+.newBookingDiv .mainContent .infoBooking{
+    background-color: #E8E8E8;
+    cursor: pointer;
+}
+.newBookingDiv .mainContent .infoBooking .iconUp{
+    text-align: center;
+}
+.newBookingDiv .mainContent .infoBooking .columns{
+    text-align: center;
+}
+.newBookingDiv .mainContent .requestDiv .requestBtn button{
+    width: 90%;
+}
+.newBookingDiv .mainContent .requestDiv .estimate{
+    margin-bottom: 20px;
+    font-size: 12px;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    height: 45px;
+    margin-bottom: 10px;
+}
+.newBookingDiv .mainContent .requestDiv .estimate .currentIcon{
+    /*cursor: pointer;*/
+    position: absolute;
+    left: 0;
+}
+.newBookingDiv .mainContent .requestDiv .estimate .infoIcon{
+    position: absolute;
+    /*cursor: pointer;*/
+    right: 0;
+}
+.newBookingDiv .mainContent .requestDiv .estimate span{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.newBookingDiv .mainContent .formNewBooking{
+    position: relative;
+    width: 100%;
+}
+.newBookingDiv .mainContent .moreInfo{
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    background: white;
+    top: 133px;
+}
+.newBookingDiv .mainContent .addressNumber{
+    border-right: silver solid 1px !important;
+}
+.newBookingDiv .mainContent .searchPickupLocation, .newBookingDiv .mainContent .searchDestination{
+    cursor: pointer;
+}
+#firstModal {
+    width: 290px;
+    text-align: center;
+    min-height: 0;
+    top: 200px !important;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+#firstModal button{
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+.notiDispatchModal .crowncarBtn{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+/*-----------------------CSS Search Pickup Location Of New Booking------------------------*/
+.seachPickupBooking{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.seachPickupBooking .rowSearch{
+    height: 100%;
+}
+.seachPickupBooking .mainContent .searchInput input{
+    padding-left: 40px !important;
+}
+.seachPickupBooking .mainContent .searchInput .searchIcon img{
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.seachPickupBooking .mainContent .searchInput .searchFoursDiv{
+    display: none;
+}
+.seachPickupBooking .mainContent .searchInput div{
+    text-align: center;
+}
+.seachPickupBooking .mainContent .searchInput{
+    border-bottom: #c0c0c0 solid 1px;
+    position: relative;
+}
+.seachPickupBooking .mainContent .searchType{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /*margin-top: 20px;*/
+}
+.seachPickupBooking .mainContent .searchType li{
+    width: 40%;
+}
+.seachPickupBooking .mainContent .searchType button{
+    width: 100%;
+    border: #CEC165 solid 1px;
+}
+.seachPickupBooking .mainContent .searchType .foursBtn{
+    border-radius: 0 5px 5px 0;
+}
+.seachPickupBooking .mainContent .searchType .googleBtn{
+    border-radius: 5px 0 0 5px;
+}
+.seachPickupBooking .mainContent .searchType .noSelected{
+    background-color: white;
+    color: #CEC165;
+    border: #CEC165 solid 1px;
+}
+.seachPickupBooking .mainContent .searchType .noSelected:hover, .seachPickupBooking .mainContent .searchType .noSelected:hover{
+    background-color: #A79C4F;
+    color: white;
+}
+.seachPickupBooking .mainContent .autoCompleteDiv{
+    overflow-y: auto;
+    position: relative;
+}
+.searchPickupLocation .mainContent .resultSearch{
+    position: relative;
+}
+.seachPickupBooking .mainContent .loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100px;
+    display: none;
+}
+.seachPickupBooking .mainContent .autoCompleteDiv div {
+    border-bottom: silver solid 1px;
+    padding: 10px 37px;
+}
+.seachPickupBooking .mainContent .autoCompleteDiv div:hover, .seachPickupBooking .mainContent .autoCompleteDiv div:focus{
+    background-color: rgba(192, 192, 192, 0.17);;
+}
+
+/*-----------------------CSS Search Destination Location Of New Booking------------------------*/
+.seachDestinationBooking{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.seachDestinationBooking .rowSearch{
+    height: 100%;
+}
+.seachDestinationBooking .mainContent .searchInput input{
+    padding-left: 40px !important;
+}
+.seachDestinationBooking .mainContent .searchInput .searchIcon img{
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.seachDestinationBooking .mainContent .searchInput .searchFoursDiv{
+    display: none;
+}
+.seachDestinationBooking .mainContent .searchInput div{
+    text-align: center;
+}
+.seachDestinationBooking .mainContent .searchInput{
+    border-bottom: #c0c0c0 solid 1px;
+    position: relative;
+}
+.seachDestinationBooking .mainContent .searchType{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /*margin-top: 10px;*/
+}
+.seachDestinationBooking .mainContent .searchType li{
+    width: 40%;
+}
+.seachDestinationBooking .mainContent .searchType button{
+    width: 100%;
+    border: #CEC165 solid 1px;
+}
+.seachDestinationBooking .mainContent .searchType .foursBtn{
+    border-radius: 0 5px 5px 0;
+}
+.seachDestinationBooking .mainContent .searchType .googleBtn{
+    border-radius: 5px 0 0 5px;
+}
+.seachDestinationBooking .mainContent .searchType .noSelected{
+    background-color: white;
+    color: #CEC165;
+    border: #CEC165 solid 1px;
+}
+.seachDestinationBooking .mainContent .searchType .noSelected:hover, .seachDestinationBooking .mainContent .searchType .noSelected:hover{
+    background-color: #A79C4F;
+    color: white;
+}
+.seachDestinationBooking .mainContent .autoCompleteDiv{
+    overflow-y: auto;
+}
+.seachDestinationBooking .mainContent .autoCompleteDiv div {
+    border-bottom: silver solid 1px;
+    padding: 10px 37px;
+}
+.seachDestinationBooking .mainContent .autoCompleteDiv div:hover, .seachDestinationBooking .mainContent .autoCompleteDiv div:focus{
+    background-color: rgba(192, 192, 192, 0.17);;
+}
+
+/*-----------------------CSS My Booking------------------------*/
+.myBookingDiv .mainContent .typeBooking{
+    text-align: center;
+    margin: 5px 0;
+}
+.myBookingDiv .mainContent .typeBooking li{
+    width: 40%;
+}
+.myBookingDiv .mainContent .typeBooking .bookingBtn{
+    border-radius: 5px 0 0 5px;
+}
+.myBookingDiv .mainContent .typeBooking .reservationBtn{
+    border-radius: 0 5px 5px 0;
+}
+.myBookingDiv .mainContent .typeBooking button{
+    width: 100%;
+    border: #CEC165 solid 1px;
+    margin-bottom: 0;
+}
+.myBookingDiv .mainContent .typeBooking .noSelected{
+    background-color: white;
+    color: #CEC165;
+    border: #CEC165 solid 1px;
+}
+.myBookingDiv .mainContent .typeBooking button:hover{
+    background-color: #A79C4F;
+    color: white;
+}
+.myBookingDiv .mainContent .typeBooking button:focus{
+    background-color: #CEC165;
+    color: white;
+}
+.myBookingDiv .mainContent .listBooking .accordion .accordion-navigation{
+    border-bottom: #c0c0c0 solid 1px;
+}
+.myBookingDiv .mainContent .listBooking .accordion .accordion-navigation:first-child{
+    border-top: #c0c0c0 solid 1px;
+}
+.myBookingDiv .mainContent .listBooking .accordion .accordion-navigation a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.myBookingDiv .mainContent .listBooking .content{
+    padding: 0;
+}
+.myBookingDiv .mainContent .listBooking .infoBooking{
+     border-bottom: #B0B0B0 solid 1px;
+}
+.myBookingDiv .mainContent .listBooking .infoBooking .row{
+    padding: 3px 20px 3px 10px;
+    position: relative;
+}
+.myBookingDiv .mainContent .listBooking .infoBooking .row .title{
+    color: #B0B0B0;
+}
+.myBookingDiv .mainContent .listBooking .infoBooking .row img{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+}
+.myBookingDiv .mainContent .listBooking .showDetail {
+    cursor: pointer;
+}
+.myBookingDiv .mainContent .listBooking .header .showMore{
+    margin-top: 8px;
+    float: right;
+}
+.myBookingDiv .mainContent .listBooking .header .upIcon {
+    margin-right: 7px;
+}
+
+/*-----------------------CSS My Booking Reservation------------------------*/
+.myBookingDiv .mainContent .typeBooking{
+    text-align: center;
+    margin: 5px 0;
+}
+.myBookingDiv .mainContent .typeBooking li{
+    width: 40%;
+}
+.myBookingDiv .mainContent .typeBooking .bookingBtn{
+    border-radius: 5px 0 0 5px;
+}
+.myBookingDiv .mainContent .typeBooking .reservationBtn{
+    border-radius: 0 5px 5px 0;
+}
+.myBookingDiv .mainContent .typeBooking button{
+    width: 100%;
+    border: #CEC165 solid 1px;
+    margin-bottom: 0;
+}
+.myBookingDiv .mainContent .typeBooking .noSelected{
+    background-color: white;
+    color: #CEC165;
+    border: #CEC165 solid 1px;
+}
+.myBookingDiv .mainContent .typeBooking button:hover{
+    background-color: #A79C4F;
+    color: white;
+}
+.myBookingDiv .mainContent .listReservation .accordion .accordion-navigation{
+    border-bottom: #c0c0c0 solid 1px;
+}
+.myBookingDiv .mainContent .listReservation .accordion .accordion-navigation:first-child{
+    border-top: #c0c0c0 solid 1px;
+}
+.myBookingDiv .mainContent .listReservation .accordion .accordion-navigation a{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.myBookingDiv .mainContent .listReservation .content{
+    padding: 0;
+}
+.myBookingDiv .mainContent .listReservation .infoReservation{
+    border-bottom: #B0B0B0 solid 1px;
+    position: relative;
+}
+.myBookingDiv .mainContent .listReservation .infoReservation .row{
+    padding: 3px 20px 3px 20px;
+}
+.myBookingDiv .mainContent .listReservation .infoReservation .row .title{
+    color: #B0B0B0;
+}
+.myBookingDiv .mainContent .listReservation .infoReservation img{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+}
+.myBookingDiv .mainContent .listReservation .showDetail {
+    cursor: pointer;
+}
+.myBookingDiv .mainContent .listReservation .header .showMore{
+    margin-top: 8px;
+    float: right;
+}
+.myBookingDiv .mainContent .listReservation .header .upIcon {
+    margin-right: 7px;
+}
+
+/*-----------------------CSS My Booking Detail------------------------*/
+.myBookingDetailDiv{
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.myBookingDetailDiv .returnMyBooking{
+    cursor: pointer;
+}
+.myBookingDetailDiv .returnMyBooking img{
+    margin-top: -5px;
+    margin-left: 10px;
+}
+.myBookingDetailDiv .mainContent .infoBooking{
+    position: relative;
+}
+.myBookingDetailDiv .mainContent .infoBooking .row{
+    border-bottom: rgba(192, 192, 192, 0.33) solid 1px;
+    line-height: 32px;
+}
+.myBookingDetailDiv .mainContent .infoBooking div img{
+    border-radius: 50%;
+    border: none;
+    height: 60px;
+    margin-top: 10px;
+}
+.myBookingDetailDiv .mainContent .infoBooking .tit{
+    padding-left: 8%;
+}
+.myBookingDetailDiv .mainContent .infoBooking .showMore{
+    display: none;
+    position: relative;
+}
+.myBookingDetailDiv .mainContent .infoBooking .displayMoreInfo{
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    background-color: white;
+}
+.myBookingDetailDiv .mainContent .infoBooking .cancelBooking{
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+.myBookingDetailDiv .mainContent .infoBooking .cancelBooking .showMoreIcon{
+    cursor: pointer;
+}
+.myBookingDetailDiv .mainContent .infoBooking .cancelBooking .downIcon{
+    height: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.myBookingDetailDiv .mainContent .infoBooking .cancelBooking .upIcon{
+    height: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: none;
+}
+.myBookingDetailDiv .mainContent .infoBooking .cancelBooking .cancelBtn{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 84%;
+    background-color: #56C3D7;
+    color: #ffffff;
+    margin-top: 5px;
+    margin-bottom: 0;
+    z-index: 9;
+}
+.myBookingDetailDiv .mainContent #mapBookingDetail {
+    margin-top: 70px;
+}
+
+/*-----------------------CSS Report------------------------*/
+.reportDiv input{
+    padding: 0 5px;
+}
+.reportDiv .mainContent .queryDiv ul li button{
+    font-size: 14px;
+}
+.reportDiv .mainContent{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.reportDiv .mainContent .queryDiv{
+    text-align: center;
+}
+.reportDiv .mainContent .queryDiv ul:nth-child(1){
+    margin-top: 10px;
+}
+.reportDiv .mainContent .queryDiv ul li{
+    width: 33.33%;
+}
+.reportDiv .mainContent .queryDiv ul li button{
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px 5px;
+    background-color: white;
+    color: #CEC165;
+    border: #CEC165 solid 1px;
+}
+.reportDiv .mainContent .queryDiv ul li:nth-child(1) button{
+    border-radius: 5px 0 0 5px;
+}
+.reportDiv .mainContent .queryDiv ul li:nth-child(3) button{
+    border-radius: 0 5px 5px 0;
+}
+/*@media (max-width: 343px){*/
+    /*.reportDiv .mainContent .queryDiv ul:nth-child(2) li:nth-child(2) button, .reportDiv .mainContent .queryDiv ul:nth-child(2) li:nth-child(3) button{*/
+        /*padding-top: 10px;*/
+        /*padding-bottom: 29px;*/
+    /*}*/
+/*}*/
+.reportDiv .mainContent .queryDiv ul li button:hover{
+    background-color: #A79C4F;
+    color: white;
+}
+.reportDiv .mainContent .queryDiv ul li button:focus{
+    background-color: #CEC165;
+    color: white;
+}
+.reportDiv .mainContent .queryDiv .selected{
+    background-color: #CEC165;
+    color: white;
+}
+.reportDiv .mainContent .queryDiv .queryBtn{
+    width: 99%;
+    margin: auto;
+}
+.reportDiv .mainContent .queryDiv .queryBtn button{
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #CEC165;
+    color: white;
+    border: #CEC165 solid 1px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.reportDiv .mainContent .queryDiv .customDiv{
+    /*display: none;*/
+}
+.reportDiv .mainContent .queryDiv .customDiv .row:nth-child(1){
+    margin-bottom: 5px;
+}
+.reportDiv .mainContent .queryDiv .customDiv .columns{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+.reportDiv .mainContent .queryDiv .customDiv .tit{
+    padding-left: 1%;
+    text-align: left;
+}
+/*@media(min-width: 360px){*/
+    /*.reportDiv .mainContent .queryDiv .customDiv .tit:nth-child(1){*/
+        /*line-height: 27px;*/
+    /*}*/
+/*}*/
+.reportDiv .mainContent .queryDiv .customDiv .tit:nth-child(2){
+    line-height: 37px;
+}
+.reportDiv .mainContent .queryDiv .customDiv .columns select, .reportDiv .mainContent .queryDiv .customDiv .columns select:hover{
+    background-color: #ffffff !important;
+}
+.reportDiv .mainContent .queryDiv .customDiv .columns select, .reportDiv .mainContent .queryDiv .customDiv .columns input{
+    margin-bottom: 0;
+    border: silver solid 1px !important;
+    margin: 0 !important;
+    box-shadow: none;
+}
+.reportDiv .mainContent .queryDiv .customDiv input, .reportDiv .mainContent .queryDiv .customDiv select{
+    border-radius: 5px;
+}
+.reportDiv .mainContent .resultDiv, .reportDiv .mainContent .resultDiv #example_length, .reportDiv .mainContent .dataTables_filter{
+    display: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: 0.25em 0.5em;
+}
+.dataTables_wrapper .dataTables_info{
+    float: left;
+    text-align: left;
+    color: #A5A0A0;
+}
+.dataTables_wrapper .dataTables_paginate{
+    float: right;
+    text-align: right;
+    margin-top: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    background: none;
+    background-color: #ffffff;
+    border: white solid 1px !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+
+/*------------Internal phone-------------*/
+.newBookingDiv .mainContent .row .intl-tel-input{
+    width: 100%;
+}
+.newBookingDiv .mainContent .row .intl-tel-input input[type="text"], .intl-tel-input input[type="tel"] {
+    padding-left: 44px !important;
+}
+
+/*--------------Css page setting-----------------*/
+.settingDiv .mainContent .changePasswordD{
+    line-height: 32px;
+    padding: 0 15px;
+}
+.settingDiv .mainContent .changePasswordD .header{
+    border-bottom: #c0c0c0 solid 1px;
+    padding-left: 10px;
+}
+.settingDiv .mainContent .changePasswordD .arrowChange{
+    width: 8px;
+    margin-top: -4px;
+    margin-left: 10px;
+}
+.changePasswordDiv{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: none;
+}
+.changePasswordDiv .mainContent{
+    padding: 0 15px;
+}
+.changePasswordDiv .mainContent .row{
+    line-height: 32px;
+    padding: 0 15px;
+    border-bottom: #c0c0c0 solid 1px;
+}
+.changePasswordDiv .mainContent .row:nth-child(3){
+    border-bottom: none !important;
+}
+.changePasswordDiv .mainContent .saveBtn{
+    background-color: #cec165;
+    border: thin solid #cec165;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+}

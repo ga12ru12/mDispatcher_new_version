@@ -1,0 +1,185 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+        <li>
+            <a ui-sref="profile">
+                <label class="icon"><img src="/images/menu/menu_info.png"></label>
+                <label class="title">Profile</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="new_booking">
+                <label class="icon"><img src="/images/menu/menu_new_booking.png"></label>
+                <label class="title">New Booking</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="my_booking">
+                <label class="icon"><img src="/images/menu/menu_booking.png"></label>
+                <label class="title">My Bookings</label>
+            </a>
+        </li>
+        <li class="active">
+            <a ui-sref="report">
+                <label class="icon"><img src="/images/menu/menu_report.png"></label>
+                <label class="title">Report</label>
+            </a>
+        </li>
+        <!--<li>-->
+        <!--<a ui-sref="dashboard">-->
+        <!--<label class="icon"><img src="/images/menu/icon5.png"></label>-->
+        <!--<label class="title">Dashboard</label>-->
+        <!--</a>-->
+        <!--</li>-->
+        <li>
+            <a ui-sref="setting">
+                <label class="icon"><img src="/images/menu/ico-settings.png"></label>
+                <label class="title">Setting</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="logout">
+                <label class="icon"><img src="/images/menu/menu_logout.png"></label>
+                <label class="title">Logout</label>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="title">Report</div>
+    <span></span>
+</div>
+<div class="mainContent reportDiv">
+    <div class="queryDiv">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default thisYear">This Year</button>
+            <button type="button" class="btn btn-default thisMonth">This Month</button>
+            <button type="button" class="btn btn-default lastMonth">Last Month</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default past30Day">Past 30 days</button>
+            <button type="button" class="btn btn-default today selected">Today</button>
+            <button type="button" class="btn btn-default custom">Custom</button>
+        </div>
+    </div>
+    <div class="timeDiv">
+        <div class="fromDate row">
+            <div class="col-xs-3 col-sm-3 large-3 columns title">
+                <div class="">From Date: </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 large-4 columns date">
+                <div class="form-group">
+                    <div class='input-group' id='datetimepickerFrom'>
+                        <input type="text" ng-model="dateFrom" class="hiddenDateFrom">
+                        <input type='text' class="form-control" data-date-format="MM/DD/YYYY" readonly class="dateFrom"/>
+                        <span class="input-group-addon btnPickerFrom">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 large-3 columns hour">
+                <select data-ng-options="option.name for option in hourOptions" data-ng-model="hourFrom" class="form-control"></select>
+            </div>
+            <div class="col-xs-2 col-sm-2 large-2 columns minute">
+                <select data-ng-options="option.name for option in minuteOptions" data-ng-model="minuteFrom" class="form-control"></select>
+            </div>
+        </div>
+        <div class="toDate row">
+            <div class="col-xs-3 col-sm-3 large-3 columns title">
+                <div class="">To Date: </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 large-4 columns date">
+                <div class="form-group">
+                    <div class='input-group' id='datetimepickerTo'>
+                        <input type="text" ng-model="dateTo" class="hiddenDateTo">
+                        <input type='text' class="form-control" data-date-format="MM/DD/YYYY" readonly/>
+                        <span class="input-group-addon btnPickerTo">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3 col-sm-3 large-3 columns hour">
+                <select data-ng-options="option.name for option in hourOptions" data-ng-model="hourTo" class="form-control"></select>
+            </div>
+            <div class="col-xs-2 col-sm-2 large-2 columns minute">
+                <select data-ng-options="option.name for option in minuteOptions" data-ng-model="minuteTo" class="form-control"></select>
+            </div>
+        </div>
+    </div>
+    <div class="queryBtn">
+        <button class="cabzillaBtn btn btn-primary btn-lg" ng-click="requestReport()">View</button>
+    </div>
+    <div class="resultDiv">
+        <table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="notiMDispatchModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div>{{ notiMDispatch }}</div>
+            <div>
+                <button class="btn radius cabzillaBtn" class="close" data-dismiss="modal" type="button">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $jq(function(){
+        var fromPicker = $jq('#datetimepickerFrom').datetimepicker({
+            pickTime: false
+        });
+        $jq("#datetimepickerFrom").on("dp.change",function (e) {
+            $jq('.hiddenDateFrom').val(e.date);
+            $jq('.hiddenDateFrom').trigger('input');
+        });
+        $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date());
+        var toPicker = $jq('#datetimepickerTo').datetimepicker({
+            pickTime: false
+        });
+        $jq("#datetimepickerTo").on("dp.change",function (e) {
+            $jq('.hiddenDateTo').val(e.date);
+            $jq('.hiddenDateTo').trigger('input');
+        });
+        $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date());
+        $jq('.reportDiv .queryDiv button').click(function(){
+            $jq('.reportDiv .queryDiv button').removeClass('selected');
+            $jq(this).addClass('selected');
+        });
+        $jq('.custom').click(function(){
+            $jq('.btnPickerFrom').trigger('click');
+        });
+        $jq('.today').click(function(){
+            $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date());
+            $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date());
+        });
+        $jq('.past30Day').click(function(){
+            $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date(new moment(new moment().format('YYYY/MM/DD'), 'YYYY/MM/DD').subtract(30, 'days').valueOf()));
+            $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date());
+        });
+        $jq('.lastMonth').click(function(){
+            $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/'+(new Date().getMonth()+1)+'/01', 'YYYY/MM/DD').subtract(1, 'months').valueOf()));
+            $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/'+(new Date().getMonth())+'/'+ new moment().subtract(1, 'months').endOf('month').date(), 'YYYY/MM/DD').valueOf()));
+        });
+        $jq('.thisMonth').click(function(){
+            $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/'+(new Date().getMonth()+1)+'/01', 'YYYY/MM/DD').valueOf()));
+            $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/'+(new Date().getMonth()+1)+'/'+ new moment().endOf('month').date(), 'YYYY/MM/DD').valueOf()));
+        });
+        $jq('.thisYear').click(function(){
+            $jq('#datetimepickerFrom').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/01/01', 'YYYY/MM/DD').valueOf()));
+            $jq('#datetimepickerTo').data("DateTimePicker").setDate(new Date(new moment(new Date().getFullYear()+'/12/31', 'YYYY/MM/DD').valueOf()));
+        });
+    });
+</script>

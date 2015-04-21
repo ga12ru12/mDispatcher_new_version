@@ -1,0 +1,116 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<div class="seachDestinationBooking">
+    <div class="headerChangeDestinationLocation header">
+        <a class="backIcon" ui-sref="new_booking">
+            <div class="icon">
+                <img src="/images/cabzilla_icon/arrow.png">
+            </div>
+        </a>
+        <div class="title">Change Destination Location</div>
+    </div>
+    <div class="content">
+        <div class="searchInput">
+            <span class="searchIcon">
+                <img src="/images/booking/searchIcon.png">
+            </span>
+            <div class="searchGoogleDiv">
+                <input type="text" ng-model="destinationLocation" class="destinationLocation" id="destinationLocationGoogle" placeholder="Search" ng-change="searchDestinationGoogle()">
+            </div>
+            <div class="searchFoursDiv">
+                <input type="text" ng-model="destinationLocation" class="destinationLocation" id="destinationLocationFours" placeholder="Search" ng-change="seachDestinationFours()">
+            </div>
+            <div style="display: none">
+                <input type="text" ng-model="destinationLat" class="destinationLat">
+                <input type="text" ng-model="destinationLng" class="destinationLng">
+                <input type="text" ng-model="destinationZipcode" class="destinationZipcode">
+                <input type="text" ng-model="submitGBtn" class="submitGBtn" ng-change="changeDestinationG()">
+                <input type="text" ng-model="submitFBtn" class="submitFBtn" ng-change="changeDestinationF()">
+            </div>
+        </div>
+        <div class="resultSearch">
+            <div class="autoCompleteDiv">
+
+            </div>
+            <!--<img src="/images/gif-load.gif" class="loading">-->
+        </div>
+        <div class="searchType">
+            <div class="btn-group" role="group">
+                <button class="button googleBtn cabzillaBtn">Google</button>
+                <button class="button foursBtn cabzillaBtn noSelected">Foursquare</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="application/javascript">
+    $jq(function(){
+        $jq('.seachDestinationBooking .content .googleBtn').click(function(){
+            $jq('.seachDestinationBooking .content .googleBtn').removeClass('noSelected');
+            $jq('.seachDestinationBooking .content .foursBtn').addClass('noSelected');
+            $jq('.seachDestinationBooking .content .searchFoursDiv').hide();
+            $jq('.seachDestinationBooking .content .searchGoogleDiv').show();
+            $jq('.seachDestinationBooking .content .autoCompleteDiv').hide();
+        });
+        //Search Location google
+        var input = (document.getElementById('destinationLocationGoogle'));
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        new google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            var destinationLocationBookingGoogle = {
+                lat: place.geometry.location.lat(),
+                lng: place.geometry.location.lng()
+            };
+            var zipcode = _.find( place.address_components , function(info){
+                if(info.types.indexOf('postal_code') !== -1){
+                    return info;
+                }
+            });
+            $jq('.seachDestinationBooking .content .destinationLat').val(place.geometry.location.lat());
+            $jq('.seachDestinationBooking .content .destinationLat').trigger('input');
+            $jq('.seachDestinationBooking .content .destinationLng').val(place.geometry.location.lng());
+            $jq('.seachDestinationBooking .content .destinationLng').trigger('input');
+            if(zipcode && zipcode.long_name){
+                $jq('.seachDestinationBooking .content .destinationZipcode').val(zipcode.long_name);
+                $jq('.seachDestinationBooking .content .destinationZipcode').trigger('input');
+            }
+            $jq('.seachDestinationBooking .content #destinationLocationGoogle').val(autocomplete.getPlace().formatted_address);
+            $jq('.seachDestinationBooking .content #destinationLocationGoogle').trigger('input');
+            $jq('.seachDestinationBooking .content .submitGBtn').val(autocomplete.getPlace().formatted_address);
+            $jq('.seachDestinationBooking .content .submitGBtn').trigger('input');
+        });
+
+
+        /*-----------------------Foursquare Search------------------------*/
+        $jq('.seachDestinationBooking .content .foursBtn').click(function(){
+            $jq('.seachDestinationBooking .content .foursBtn').removeClass('noSelected');
+            $jq('.seachDestinationBooking .content .googleBtn').addClass('noSelected');
+            $jq('.seachDestinationBooking .content .searchGoogleDiv').hide();
+            $jq('.seachDestinationBooking .content .searchFoursDiv').show();
+            $jq('.seachDestinationBooking .content .autoCompleteDiv').show();
+            $jq('.seachDestinationBooking #destinationLocationFours').focus();
+            var tmpStr = $jq('.seachDestinationBooking #destinationLocationFours').val();
+            $jq('.seachDestinationBooking #destinationLocationFours').val('');
+            $jq('.seachDestinationBooking #destinationLocationFours').val(tmpStr);
+            if(tmpStr){
+                $jq('.seachDestinationBooking #destinationLocationFours').trigger('input')
+            }
+        });
+        $jq(document).on('click touchend', '.seachDestinationBooking .content .autoCompleteDiv div', function(){
+            $jq('.seachDestinationBooking .content .destinationLat').val($jq(this).find('.lat').val());
+            $jq('.seachDestinationBooking .content .destinationLat').trigger('input');
+            $jq('.seachDestinationBooking .content .destinationLng').val($jq(this).find('.lng').val());
+            $jq('.seachDestinationBooking .content .destinationLng').trigger('input');
+            $jq('.seachDestinationBooking .content .destinationZipcode').val('');
+            $jq('.seachDestinationBooking .content .destinationZipcode').trigger('input');
+            $jq('.seachDestinationBooking .content #destinationLocationFours').val($jq(this).find('.name').val());
+            $jq('.seachDestinationBooking .content #destinationLocationFours').trigger('input');
+            $jq('.seachDestinationBooking .content .submitFBtn').val($jq(this).find('.name').val());
+            $jq('.seachDestinationBooking .content .submitFBtn').trigger('input');
+        });
+
+    });
+</script>

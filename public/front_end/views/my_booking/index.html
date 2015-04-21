@@ -1,0 +1,69 @@
+<style>
+    body {
+        background: none;
+    }
+</style>
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+        <li>
+            <a ui-sref="profile">
+                <label class="icon"><img src="/images/menu/menu_info.png"></label>
+                <label class="title">Profile</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="new_booking">
+                <label class="icon"><img src="/images/menu/menu_new_booking.png"></label>
+                <label class="title">New Booking</label>
+            </a>
+        </li>
+        <li class="active">
+            <a ui-sref="my_booking">
+                <label class="icon"><img src="/images/menu/menu_booking.png"></label>
+                <label class="title">My Bookings</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="report">
+                <label class="icon"><img src="/images/menu/menu_report.png"></label>
+                <label class="title">Report</label>
+            </a>
+        </li>
+        <!--<li>-->
+        <!--<a ui-sref="dashboard">-->
+        <!--<label class="icon"><img src="/images/menu/icon5.png"></label>-->
+        <!--<label class="title">Dashboard</label>-->
+        <!--</a>-->
+        <!--</li>-->
+        <li>
+            <a ui-sref="setting">
+                <label class="icon"><img src="/images/menu/ico-settings.png"></label>
+                <label class="title">Setting</label>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="logout">
+                <label class="icon"><img src="/images/menu/menu_logout.png"></label>
+                <label class="title">Logout</label>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="navbar navbar-default navbar-fixed-top">
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="title">My Booking</div>
+    <span></span>
+</div>
+<div class="content myBookingDiv">
+    <div class="myBookingType">
+        <div class="btn-group" role="group">
+            <button class="btn bookingBtn cabzillaBtn" ui-sref="my_booking.booking">Booking</button>
+            <button class="btn reservationBtn cabzillaBtn noSelected" ui-sref="my_booking.reservation">Reservation</button>
+        </div>
+    </div>
+    <div ui-view></div>
+</div>
